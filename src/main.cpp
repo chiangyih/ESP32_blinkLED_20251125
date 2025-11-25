@@ -1,18 +1,18 @@
 #include <Arduino.h>
 
-// put function declarations here:
-int myFunction(int, int);
+// LED pin on the ESP32
+const uint8_t LED_PIN = 22;
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+	// initialize the digital pin as an output.
+	pinMode(LED_PIN, OUTPUT);
+	digitalWrite(LED_PIN, LOW);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+	// Blink at 1 Hz: 0.5s ON, 0.5s OFF
+	digitalWrite(LED_PIN, HIGH);
+	delay(500);
+	digitalWrite(LED_PIN, LOW);
+	delay(500);
 }
